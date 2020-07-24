@@ -24,8 +24,22 @@ var nothingInBetween_col = (board, origin, dest) => {
     return true;
 }
 
+
+
+
+
 module.exports = {
-    row = nothingInBetween_row,
-    col = nothingInBetween_col
+    row: nothingInBetween_row,
+    col: nothingInBetween_col
 }
 
+console.log(nothingInBetween_row([
+    ["2r1","2r1","2r1","2r1","2r1","2r1","2r1","2r1"],
+    ["2r1","2r1","2r1","2r1","2r1","2r1","2r1","2r1"]
+    ["","","","","","","",""],
+    ["","","","","","","",""],
+    ["","","","","","","",""],
+    ["","","","","","","",""],
+    ["2r1","2r1","2r1","2r1","2r1","2r1","2r1","2r1"],
+    ["2r1","2r1","2r1","2r1","2r1","2r1","2r1","2r1"]
+], [0, 3], [0, 7]));
