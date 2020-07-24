@@ -1,0 +1,48 @@
+7/3/20
+thinking of the pawn function.
+what the inputs are.
+
+i had these thoughts.
+when a piece moves, it will call a functionn
+that function will receive the origina and destination,
+as well as the player.
+it will then, depending on the piece, call the respective function.
+such as the pawn function.
+each of those functions will also receive origin and destination, 
+and maybe player as well, at least the pawn for sure needs it.
+these function will return boolean
+so back in the bigger fn
+if true, execute the following:
+if the destination location already has as value, 
+the captured piece variable will containthen will replace that destination location in the 2D board array with the piece
+but, if there is something already there, that value gets assigned to the 
+captured piece variable.
+then it replaces the destination value with the piece value.
+it then returns an object, with the modified grid, and the captured piece.
+return {
+	modifiedGrid:
+	
+}
+
+i just thought about this, it will also need to check if it's a check, or a checkmate.
+**********************************************************************************************
+
+
+
+var capturedPiece;
+
+var capturedPiece = board[dest[row]][dest[col]] //value of destination
+
+
+
+7/4/20
+Today i want to work on the pawn code
+
+7/5/20
+Coding for the anyInBetween_Row, and anyInBetween_Col
+
+7/23/20
+For fun, i want to either work on the rook or the bishop
+And I think i might end up reviewing the nothingInBetween
+
+
