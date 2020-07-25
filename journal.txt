@@ -45,4 +45,7 @@ Coding for the anyInBetween_Row, and anyInBetween_Col
 For fun, i want to either work on the rook or the bishop
 And I think i might end up reviewing the nothingInBetween
 
+7/24/20
+10:50pm
+where do i begin lol
 
