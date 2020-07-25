@@ -6,8 +6,8 @@ var isBishopMoveAllowed = (board, origin, dest) => {
     /*1. IF IN SAME LR DIAGONAL AND NOTHING IN BETWEEN
          OR IN SAME RL DIAGONAL AND NOTHING IN BETWEEN 
     */
-    if (inSameDiagonal.lr(board, origin, dest) && nothingInBetween.lrDiag(board, origin, dest) ||
-        inSameDiagonal.rl(board, origin, dest) && nothingInBetween.rlDiag(board, origin, dest)) {
+    if (inSameDiagonal.Lr(board, origin, dest) && nothingInBetween.lrDiag(board, origin, dest) ||
+        inSameDiagonal.Rl(board, origin, dest) && nothingInBetween.rlDiag(board, origin, dest)) {
         return true;
     } 
 

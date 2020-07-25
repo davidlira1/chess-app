@@ -24,6 +24,23 @@ var nothingInBetween_col = (board, origin, dest) => {
     return true;
 }
 
+var nothingInBetween_Lr = (board, origin, dest) => {
+    var upperLeft = origin[0] < dest[0] ? origin : dest;
+    var lowerRight = upperLeft === origin ? dest : origin;
+    var col = origin[1];
+
+    for (var row = upperLeft[0] + 1; row < lowerRight[0]; row++) {
+        col++;
+        if (board[row][col] !== '') return false;
+    }
+
+    return true;
+}
+
+var nothingInBetween_Rl = (board, origin, dest) => {
+
+}
+
 
 
 
@@ -33,13 +50,14 @@ module.exports = {
     col: nothingInBetween_col
 }
 
-console.log(nothingInBetween_row([
+console.log(nothingInBetween_Lr(
+    [
+    ["2r1","2r1","2r1","2r1","2r1","2r1","2r1","2r1"],
+    ["2r1","2r1","2r1","2r1","2r1","2r1","2r1","2r1"],
+    ["","","","","","","",""],
+    ["","","","","","","",""],
+    ["","","","","","","",""],
+    ["","","","","","","",""],
     ["2r1","2r1","2r1","2r1","2r1","2r1","2r1","2r1"],
     ["2r1","2r1","2r1","2r1","2r1","2r1","2r1","2r1"]
-    ["","","","","","","",""],
-    ["","","","","","","",""],
-    ["","","","","","","",""],
-    ["","","","","","","",""],
-    ["2r1","2r1","2r1","2r1","2r1","2r1","2r1","2r1"],
-    ["2r1","2r1","2r1","2r1","2r1","2r1","2r1","2r1"]
-], [0, 3], [0, 7]));
+], [1, 0], [3, 2]));
