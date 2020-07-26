@@ -54,4 +54,6 @@ where do i begin lol
 Okay, so i want to solidify my bishop, rook and queen functions.
 at least for the most part.
 let's start with bishop, and go from there.
-
+so i think bishop is good, rook...we'll have to look into the king rook scenario,
+and the queen, seems to be good. let's for fun, do the knight real quick.
+*btw, dont forget: a move is not legal if the destination is of the same player.
