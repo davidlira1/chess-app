@@ -1,14 +1,12 @@
-const { anyInBetween_Row } = require("./nothingInBetween")
-
-var nothingInBetween = require("nothingInBetween.js")
+const inSame = require("./inSame");
+const nothingInBetween = require("./nothingInBetween");
 
 var isRookMoveAllowed = (board, origin, dest) => {
-
     /*1. IF IN SAME ROW AND NOTHING IN BETWEEN
          OR IN SAME COL AND NOTHING IN BETWEEN 
     */
-    if(origin[0] === destination[0] && nothingInBetween.row(board, origin, dest) ||
-       origin[1] === destination[1] && nothingInBetween.col(board, origin, dest)) {
+    if(inSame.row(origin, dest) && nothingInBetween.row(board, origin, dest) ||
+       inSame.col(origin, dest) && nothingInBetween.col(board, origin, dest)) {
         return true;
     } 
 }

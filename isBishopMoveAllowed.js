@@ -1,13 +1,14 @@
-var nothingInBetween = require("nothingInBetween.js");
-var inSameDiagonal = require("inSameDiagonal.js");
+const inSame = require("./inSame");
+const nothingInBetween = require("./nothingInBetween");
+
 
 var isBishopMoveAllowed = (board, origin, dest) => {
 
     /*1. IF IN SAME LR DIAGONAL AND NOTHING IN BETWEEN
          OR IN SAME RL DIAGONAL AND NOTHING IN BETWEEN 
     */
-    if (inSameDiagonal.Lr(board, origin, dest) && nothingInBetween.lrDiag(board, origin, dest) ||
-        inSameDiagonal.Rl(board, origin, dest) && nothingInBetween.rlDiag(board, origin, dest)) {
+    if (inSame.LrDiag(origin, dest) && nothingInBetween.Lr(board, origin, dest) ||
+        inSame.RlDiag(origin, dest) && nothingInBetween.Rl(board, origin, dest)) {
         return true;
     } 
 

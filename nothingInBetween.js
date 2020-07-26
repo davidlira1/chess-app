@@ -1,10 +1,13 @@
 var nothingInBetween_row = (board, origin, dest) => {
-    //example:
-    //origin:[3,3] 
-    //destination[3,7]
-    //will check [3, 4], [3,5], [3,6], 
-    for (var col = origin[1] + 1; col < dest[1]; col++) {
-        if (board[origin[0]][col] !== "") {
+    /*   DETERMINE WHICH IS AT THE LEFTMOST AND RIGHTMOST
+         SO WE CAN LOOP FROM LEFT TO RIGHT
+    */
+    var leftMost = origin[1] < dest[1] ? origin : dest;
+    var rightMost = leftMost === origin ? dest : origin;
+    var row = leftMost[0]
+
+    for (var col = leftMost[1] + 1; col < rightMost[1]; col++) {
+        if (board[row][col] !== "") {
             return false;
         }
     }
@@ -12,45 +15,56 @@ var nothingInBetween_row = (board, origin, dest) => {
 }
 
 var nothingInBetween_col = (board, origin, dest) => {
-    //example:
-    //origin: [1, 4]
-    //destination: [6, 4]
-    //will check [2, 4], [3, 4], [4, 4], [5, 4]
-    for (var row = origin[0] + 1; row < dest[0]; row++) {
-        if (board[row][origin[1]] !== "") {
+    /*   DETERMINE WHICH IS AT THE UPPERMOST AND LOWERMOST
+         SO WE CAN LOOP FROM UP TO DOWN
+    */
+    var upperMost = origin[0] < dest[0] ? origin : dest;
+    var lowerMost = upperMost === origin ? dest : origin;
+    var col = upperMost[1]
+
+    for (var row = upperMost[0] + 1; row < lowerMost[0]; row++) {
+        if (board[row][col] !== "") {
             return false
         }
     }
     return true;
 }
 
+/*  THESE TWO FUNCTIONS ASSUME THAT 
+    THE ORIGIN AND DESTINATION BEING PASSED IN ARE IN THE SPECIFIED DIAGONAL
+*/
 var nothingInBetween_Lr = (board, origin, dest) => {
-    var upperLeft = origin[0] < dest[0] ? origin : dest;
-    var lowerRight = upperLeft === origin ? dest : origin;
-    var col = origin[1];
-
-    for (var row = upperLeft[0] + 1; row < lowerRight[0]; row++) {
-        col++;
-        if (board[row][col] !== '') return false;
-    }
-
-    return true;
+    nothingInBetween_diag(board, origin, dest, 'Lr');
 }
 
 var nothingInBetween_Rl = (board, origin, dest) => {
-
+    nothingInBetween_diag(board, origin, dest, 'Rl');
 }
 
+var nothingInBetween_diag = (board, origin, dest, direction) => {
+    /*the most upper-left piece 
+    will be placed in the upperLeft var
+    that way we can use the same for loop */
+    var upperMost = origin[0] < dest[0] ? origin : dest;
+    var lowerMost = upperMost === origin ? dest : origin;
+    
+    var col = upperMost[1];
 
-
-
+    for (var row = upperMost[0] + 1; row < lowerMost[0]; row++) {
+        col = direction === 'Lr' ? ++col : --col;
+        if (board[row][col] !== '') return false;
+    }
+    return true;
+}
 
 module.exports = {
     row: nothingInBetween_row,
-    col: nothingInBetween_col
+    col: nothingInBetween_col,
+    Lr: nothingInBetween_Lr,
+    Rl: nothingInBetween_Rl
 }
 
-console.log(nothingInBetween_Lr(
+console.log(nothingInBetween_diag(
     [
     ["2r1","2r1","2r1","2r1","2r1","2r1","2r1","2r1"],
     ["2r1","2r1","2r1","2r1","2r1","2r1","2r1","2r1"],
@@ -60,4 +74,4 @@ console.log(nothingInBetween_Lr(
     ["","","","","","","",""],
     ["2r1","2r1","2r1","2r1","2r1","2r1","2r1","2r1"],
     ["2r1","2r1","2r1","2r1","2r1","2r1","2r1","2r1"]
-], [1, 0], [3, 2]));
+], [0, 0], [5, 5]));

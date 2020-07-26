@@ -49,3 +49,9 @@ And I think i might end up reviewing the nothingInBetween
 10:50pm
 where do i begin lol
 
+7/26/20
+10:36am
+Okay, so i want to solidify my bishop, rook and queen functions.
+at least for the most part.
+let's start with bishop, and go from there.
+
