@@ -33,11 +33,11 @@ var nothingInBetween_col = (board, origin, dest) => {
 /*  THESE TWO FUNCTIONS ASSUME THAT 
     THE ORIGIN AND DESTINATION BEING PASSED IN ARE IN THE SPECIFIED DIAGONAL
 */
-var nothingInBetween_Lr = (board, origin, dest) => {
+var nothingInBetween_LrDiag = (board, origin, dest) => {
     nothingInBetween_diag(board, origin, dest, 'Lr');
 }
 
-var nothingInBetween_Rl = (board, origin, dest) => {
+var nothingInBetween_RlDiag = (board, origin, dest) => {
     nothingInBetween_diag(board, origin, dest, 'Rl');
 }
 
